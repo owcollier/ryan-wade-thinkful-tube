@@ -35,6 +35,7 @@ function transferApiDataToSTORE(data){
 function generateResults (index) {
   // pull search results data object(s) from RESULTS
   // plug into HTML template
+  console.log(index);
   let thumbnailURL = index.snippet.thumbnails.high.url;
   let resultChannel = index.snippet.channelTitle;
   let resultTitle = index.snippet.title;
@@ -42,7 +43,7 @@ function generateResults (index) {
   return `
   <div>
     <h3>${resultTitle}</h3>
-    <img class="thumbnail" src="${thumbnailURL}">
+    <a target="_blank" href="${thumbnailURL}"><img class="thumbnail" src="${thumbnailURL}"></a>
     <p>${resultDesc}</p>
     <h4>by: ${resultChannel}</h4>
   </div>
@@ -85,7 +86,6 @@ function handleUserSubmit () {
 
 function main(){
   handleUserSubmit();
-
 }
 
 $(main);
