@@ -29,6 +29,7 @@ function getDataFromYoutube (input, callback) {
 function transferApiDataToSTORE(data){
   STORE.results.push(data.items);
   console.log(STORE);
+  renderSearchResults();
 }
 
 // Generator function
@@ -77,7 +78,7 @@ function handleUserSubmit () {
     console.log(searchTerm);
     queryTarget.val('');
     getDataFromYoutube(searchTerm, transferApiDataToSTORE);
-    renderSearchResults();
+    
   });
 }
 
@@ -85,6 +86,7 @@ function handleUserSubmit () {
 
 function main(){
   handleUserSubmit();
+
 }
 
 
