@@ -8,8 +8,6 @@ const STORE = {
   resultsPerPage:0
 };
 
-
-
 // Get data function 
 
 function getDataFromYoutube (input, callback) {
@@ -51,18 +49,19 @@ function generateResults (index) {
 `;
 }
 
-
 // Render to DOM function
 
 function renderSearchResults () {
   // Call generator function, grab returned html string
   // render to DOM
-  console.log(STORE.results);
-  let results = [];
-  for(let i=0; i<STORE.results.length; i++){
-    let resultHTML = generateResults(STORE.results[0][i]);
-    results.push(resultHTML);
-  }
+  console.log('sr', STORE.results);
+  let results = STORE.results[0].map(function(val) {
+    return generateResults(val);
+  }).join('');
+  // let results = [];
+  // for(let i=0; i<STORE.results[0].length; i++){
+  //   let resultHTML = generateResults(STORE.results[0][i]);
+  //   results.push(resultHTML);
   $('.js-search-results').html(results);
 }
 
@@ -88,6 +87,5 @@ function main(){
   handleUserSubmit();
 
 }
-
 
 $(main);
