@@ -192,10 +192,16 @@ function transferApiDatatoSTORE(){
 function generateResults (index) {
   // pull search results data object(s) from RESULTS
   // plug into HTML template
-  let thumbnailURL = index.snippet.thumbnails.default.url
+  let thumbnailURL = index.snippet.thumbnails.high.url;
+  let resultChannel = index.snippet.channelTitle
+  let resultTitle = index.snippet.title;
+  let resultDesc = index.snippet.description;
   return `
   <div>
-    <img src="${thumbnailURL}">
+    <h3>${resultTitle}</h3>
+    <img class="thumbnail" src="${thumbnailURL}">
+    <p>${resultDesc}</p>
+    <h4>by: ${resultChannel}</h4>
   </div>
 `;
 }
@@ -208,7 +214,7 @@ function renderSearchResults () {
   // render to DOM
   let results = [];
   for(let i=0; i<STORE.results.length; i++){
-    let resultHMTL = generateResults(STORE.results[i]);
+    let resultHTML = generateResults(STORE.results[i]);
     results.push(resultHTML);
   }
   $('.js-search-results').html(results);
