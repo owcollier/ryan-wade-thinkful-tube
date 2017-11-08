@@ -1,6 +1,8 @@
 'use strict';
 
-const RESULTS = ['daisy',27,'gopher'];
+const STORE = {
+  results: ['daisy',27,'gopher']
+};
 
 // Get data function 
 
@@ -29,7 +31,7 @@ function renderSearchResults () {
 function handleUserSubmit () {
   $('.js-search-form').submit(function (event) {
     event.preventDefault();
-    RESULTS.splice(0, RESULTS.length);
+    STORE.results.splice(0, STORE.results.length);
     let queryTarget = $(event.currentTarget).find('.js-query')
     let query = queryTarget.val();
     // clear the input
