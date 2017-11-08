@@ -56,9 +56,10 @@ function generateResults (index) {
 function renderSearchResults () {
   // Call generator function, grab returned html string
   // render to DOM
+  console.log(STORE.results);
   let results = [];
   for(let i=0; i<STORE.results.length; i++){
-    let resultHTML = generateResults(STORE.results[i]);
+    let resultHTML = generateResults(STORE.results[0][i]);
     results.push(resultHTML);
   }
   $('.js-search-results').html(results);
