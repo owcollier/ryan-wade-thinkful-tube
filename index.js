@@ -208,8 +208,8 @@ function renderSearchResults () {
   // render to DOM
   let results = [];
   for(let i=0; i<STORE.results.length; i++){
-    let c = generateResults(STORE.results[i]);
-    results.push(c);
+    let resultHMTL = generateResults(STORE.results[i]);
+    results.push(resultHTML);
   }
   $('.js-search-results').html(results);
 }
